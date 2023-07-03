@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "minecraft:firework_rocket"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "F F",
+    "LIL"
+  ],
+  "result": {
+    "item": "firework_rocket_jetpack:firework_rocket_jetpack"
+  },
+  "show_notification": true
+}
