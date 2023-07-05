@@ -13,17 +13,16 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.DyeableArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class FireworkRocketJetpackItem extends ArmorItem {
+public class FireworkRocketJetpackItem extends DyeableArmorItem {
 
     private static final ArmorMaterial JETPACK_MATERIAL = new ArmorMaterial() {
 
@@ -31,10 +30,10 @@ public class FireworkRocketJetpackItem extends ArmorItem {
         public int getDurabilityForType(@NotNull Type p_266807_) { return 128; }
 
         @Override
-        public int getDefenseForType(@NotNull Type p_267168_) { return 0; }
+        public int getDefenseForType(@NotNull Type p_267168_) { return 1; }
 
         @Override
-        public int getEnchantmentValue() { return 0; }
+        public int getEnchantmentValue() { return 15; }
 
         @Override
         public @NotNull SoundEvent getEquipSound() { return SoundEvents.ARMOR_EQUIP_LEATHER; }
@@ -66,6 +65,11 @@ public class FireworkRocketJetpackItem extends ArmorItem {
         return new ResourceLocation(FireworkRocketJetpackModMain.MODID, "textures/models/armor/firework_rocket_jetpack_layer_1"+typeS+".png").toString();
     }
 
+    @Override
+    public int getMaxDamage(ItemStack stack) {
+        return 128;
+    }
+
     public static boolean canUse(ItemStack p_41141_) {
         return p_41141_.getDamageValue() < p_41141_.getMaxDamage() - 1;
     }
@@ -82,6 +86,7 @@ public class FireworkRocketJetpackItem extends ArmorItem {
             } else {
                 this.jump(entity);
             }
+            stack.hurtAndBreak(1, entity, entity1 -> entity1.broadcastBreakEvent(EquipmentSlot.CHEST));
             FireworkRocketJetpackModNetwork.CHANNEL.sendToServer(new ServerboundBreakItemPacket(stack, EquipmentSlot.CHEST));
         }
         return false;
@@ -90,7 +95,7 @@ public class FireworkRocketJetpackItem extends ArmorItem {
 
     private void jump(LivingEntity entity){
         Vec3 dV = entity.getDeltaMovement().add(0, 1, 0);
-        entity.setDeltaMovement(dV.x(), Math.max(0.15, Math.min(0.5, dV.y())), dV.z());
+        entity.setDeltaMovement(dV.x(), Math.max(0.2, Math.min(0.6, dV.y())), dV.z());
         this.addParticles(entity);
         this.playSound(entity);
     }

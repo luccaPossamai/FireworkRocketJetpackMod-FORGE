@@ -2,7 +2,7 @@ package net.lpcamors.firework_jetpack.capability.firework_ability;
 
 public class FireworkAbilityCapabilty {
 
-    public static final int TIME = 18;
+    public static final int TIME = 15;
     private int lastTick = 0;
 
     public FireworkAbilityCapabilty() {}

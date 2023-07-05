@@ -27,8 +27,8 @@ public class ServerboundBreakItemPacket {
 
     public void handle(Supplier<NetworkEvent.Context> event) {
         event.get().enqueueWork(() -> {
-            if(event.get().getSender() != null) {
-                this.item.hurtAndBreak(1, event.get().getSender(), entity1 -> entity1.broadcastBreakEvent(this.slot));
+            if(event.get() != null && event.get().getSender() != null) {
+                event.get().getSender().getItemBySlot(this.slot).hurtAndBreak(1, event.get().getSender(), entity1 -> entity1.broadcastBreakEvent(this.slot));
             }
         });
         event.get().setPacketHandled(true);
