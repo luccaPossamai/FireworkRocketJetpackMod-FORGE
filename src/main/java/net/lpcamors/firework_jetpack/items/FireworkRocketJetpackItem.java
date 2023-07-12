@@ -3,7 +3,7 @@ package net.lpcamors.firework_jetpack.items;
 import net.lpcamors.firework_jetpack.FireworkRocketJetpackModMain;
 import net.lpcamors.firework_jetpack.capability.FireworkRocketJetpackModCapabilities;
 import net.lpcamors.firework_jetpack.packets.FireworkRocketJetpackModNetwork;
-import net.lpcamors.firework_jetpack.packets.ServerboundBreakItemPacket;
+import net.lpcamors.firework_jetpack.packets.ServerboundFireworkJumpPacket;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -15,7 +15,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.DyeableArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.phys.Vec3;
@@ -81,14 +80,13 @@ public class FireworkRocketJetpackItem extends ArmorItem {
             if(entity instanceof Player player){
                 player.getCapability(FireworkRocketJetpackModCapabilities.FIREWORK_ABILITY).ifPresent(fireworkAbilityCapabilty -> {
                     if(fireworkAbilityCapabilty.canUse(player.tickCount)) {
+                        FireworkRocketJetpackModNetwork.sendToServer(new ServerboundFireworkJumpPacket(stack, EquipmentSlot.CHEST));
                         this.jump(entity);
                     }
                 });
             } else {
                 this.jump(entity);
             }
-            stack.hurtAndBreak(1, entity, entity1 -> entity1.broadcastBreakEvent(EquipmentSlot.CHEST));
-            FireworkRocketJetpackModNetwork.CHANNEL.sendToServer(new ServerboundBreakItemPacket(stack, EquipmentSlot.CHEST));
         }
         return false;
     }
@@ -97,8 +95,8 @@ public class FireworkRocketJetpackItem extends ArmorItem {
     private void jump(LivingEntity entity){
         Vec3 dV = entity.getDeltaMovement().add(0, 1, 0);
         entity.setDeltaMovement(dV.x(), Math.max(0.2, Math.min(0.6, dV.y())), dV.z());
-        this.addParticles(entity);
-        this.playSound(entity);
+        //this.addParticles(entity);
+        //this.playSound(entity);
     }
     private void addParticles(LivingEntity entity){
         for(double f = 0; f < 2 * Math.PI; f += 2e-1 * Math.PI) {

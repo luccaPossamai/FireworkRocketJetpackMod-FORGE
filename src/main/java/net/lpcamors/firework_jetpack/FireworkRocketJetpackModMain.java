@@ -19,14 +19,14 @@ public class FireworkRocketJetpackModMain {
     public FireworkRocketJetpackModMain() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         FireworkRocketJetpackModItems.register(modEventBus);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
     }
 
 
-    private void clientSetup(final FMLCommonSetupEvent event){
-        FireworkRocketJetpackModNetwork.init();
+    private void commonSetup(final FMLCommonSetupEvent event){
+        event.enqueueWork(FireworkRocketJetpackModNetwork::register);
     }
 
 
