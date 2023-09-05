@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "mohard:soul_fire_charge"
+      "firework_rocket_jetpack:firework_rocket_jetpack"
     ]
   },
   "sends_telemetry_event": false

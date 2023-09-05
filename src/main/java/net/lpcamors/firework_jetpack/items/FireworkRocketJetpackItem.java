@@ -95,13 +95,7 @@ public class FireworkRocketJetpackItem extends ArmorItem {
     private void jump(LivingEntity entity){
         Vec3 dV = entity.getDeltaMovement().add(0, 1, 0);
         entity.setDeltaMovement(dV.x(), Math.max(0.2, Math.min(0.6, dV.y())), dV.z());
-        //this.addParticles(entity);
-        //this.playSound(entity);
-    }
-    private void addParticles(LivingEntity entity){
-        for(double f = 0; f < 2 * Math.PI; f += 2e-1 * Math.PI) {
-            entity.level().addParticle(ParticleTypes.FIREWORK, entity.getX() + 0.75 * Math.cos(f), entity.getY(), entity.getZ() + 0.75 * Math.sin(f), 0, 0, 0);
-        }
+        this.playSound(entity);
     }
     private void playSound(LivingEntity entity){
         entity.level().playSound(entity, entity.getOnPos(), SoundEvents.FIREWORK_ROCKET_LAUNCH, entity instanceof Player ? SoundSource.PLAYERS : SoundSource.HOSTILE, 1F, 0.90F);
