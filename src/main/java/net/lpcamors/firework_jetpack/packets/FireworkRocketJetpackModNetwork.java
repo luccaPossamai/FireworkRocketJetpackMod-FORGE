@@ -3,10 +3,7 @@ package net.lpcamors.firework_jetpack.packets;
 import net.lpcamors.firework_jetpack.FireworkRocketJetpackModMain;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraftforge.network.NetworkDirection;
-import net.minecraftforge.network.NetworkRegistry;
-import net.minecraftforge.network.PacketDistributor;
-import net.minecraftforge.network.simple.SimpleChannel;
+import net.minecraftforge.network.*;
 
 public class FireworkRocketJetpackModNetwork {
 
@@ -16,11 +13,11 @@ public class FireworkRocketJetpackModNetwork {
         return packetId++;
     }
     public static void register() {
-        SimpleChannel net = NetworkRegistry.ChannelBuilder
+        SimpleChannel net = ChannelBuilder
                 .named(new ResourceLocation(FireworkRocketJetpackModMain.MODID, "messages"))
-                .networkProtocolVersion(() -> "1.0")
-                .clientAcceptedVersions(s -> true)
-                .serverAcceptedVersions(s -> true)
+                .networkProtocolVersion(1)
+                .clientAcceptedVersions((status, version)  -> true)
+                .serverAcceptedVersions((status, version) -> true)
                 .simpleChannel();
 
 
@@ -34,11 +31,11 @@ public class FireworkRocketJetpackModNetwork {
 
 
     public static <MSG> void sendToServer(MSG message){
-        INSTANCE.sendToServer(message);
+        INSTANCE.send(message, PacketDistributor.SERVER.noArg());
     }
 
-    public static <MSG> void sendToPlayer(ServerPlayer serverPlayer, MSG message){
-        INSTANCE.send(PacketDistributor.PLAYER.with(() -> serverPlayer), message);
+    public static <MSG> void sendToClientPlayer(ServerPlayer serverPlayer, MSG message){
+        INSTANCE.send(message, PacketDistributor.PLAYER.with(serverPlayer));
     }
 }
 

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "firework_rocket_jetpack:item/bubble_propulsion_jetpack"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "firework_rocket_jetpack:firework_rocket_jetpack"
+  },
+  "result": {
+    "item": "firework_rocket_jetpack:netherite_firework_rocket_jetpack"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

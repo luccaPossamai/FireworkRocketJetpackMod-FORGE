@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "C C",
+    "LIL"
+  ],
+  "result": {
+    "item": "firework_rocket_jetpack:bubble_propulsion_jetpack"
+  },
+  "show_notification": true
+}
