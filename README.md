@@ -1,5 +1,7 @@
 # ![jetpack_icon](https://github.com/luccaPossamai/FireworkRocketJetpackMod-FORGE/assets/110493821/8be8057a-7066-4205-8624-192b9a631ac2) Minecraft Mod: Firework Rocket Jetpack   
-Adds a jetpack that grants the user a double jump.
+Adds three differents jetpacks with unique effects.
   Craft:
-  
-![firework_rocket_jetpack_craft](https://github.com/luccaPossamai/FireworkRocketJetpackMod-FORGE/assets/110493821/74ad680b-9546-41a7-b21e-ad31e5e9f24b)
+
+![firework_rocket_jetpack_craft](https://github.com/luccaPossamai/FireworkRocketJetpackMod-FORGE/assets/110493821/27b58f44-b4a2-4d57-8d88-ab0c6c682cdb)
+![bubble_propulsion_jetpack_craft](https://github.com/luccaPossamai/FireworkRocketJetpackMod-FORGE/assets/110493821/c5c38914-cbff-4b33-9619-e535a5c975b3)
+![netherite_firework_jetpack_craft](https://github.com/luccaPossamai/FireworkRocketJetpackMod-FORGE/assets/110493821/d799ab49-58ad-4676-80fc-f734398680a4)
