@@ -33,6 +33,8 @@ public class FireworkRocketJetpackModMain {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey().equals(CreativeModeTabs.TOOLS_AND_UTILITIES)){
             event.accept(FireworkRocketJetpackModItems.FIREWORK_JETPACK);
+            event.accept(FireworkRocketJetpackModItems.BUBBLE_PROPULSION_JETPACK);
+            event.accept(FireworkRocketJetpackModItems.NETHERITE_FIREWORK_JETPACK);
         }
     }
 

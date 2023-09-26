@@ -17,6 +17,6 @@ public class FireworkRocketJetpackModItems {
 
     public static final RegistryObject<Item> FIREWORK_JETPACK = ITEMS.register("firework_rocket_jetpack", () -> new FireworkRocketJetpackItem(new Item.Properties().defaultDurability(256)));
     public static final RegistryObject<Item> BUBBLE_PROPULSION_JETPACK = ITEMS.register("bubble_propulsion_jetpack", () -> new BubblePropulsionJetPackItem(new Item.Properties().defaultDurability(384)));
-    public static final RegistryObject<Item> STRONG_FIREWORK_JETPACK = ITEMS.register("netherite_firework_rocket_jetpack", () -> new NetheriteFireworkRocketJetpackItem(new Item.Properties().defaultDurability(512)));
+    public static final RegistryObject<Item> NETHERITE_FIREWORK_JETPACK = ITEMS.register("netherite_firework_rocket_jetpack", () -> new NetheriteFireworkRocketJetpackItem(new Item.Properties().defaultDurability(512)));
 
 }
