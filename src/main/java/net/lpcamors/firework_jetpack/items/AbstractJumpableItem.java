@@ -4,7 +4,6 @@ import net.lpcamors.firework_jetpack.capability.FireworkRocketJetpackModCapabili
 import net.lpcamors.firework_jetpack.packets.FireworkRocketJetpackModNetwork;
 import net.lpcamors.firework_jetpack.packets.ServerboundFireworkJumpPacket;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
@@ -17,8 +16,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
 
 
 public abstract class AbstractJumpableItem extends Item implements Equipable {
